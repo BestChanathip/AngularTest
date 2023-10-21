@@ -1,0 +1,25 @@
+<span class="topic">1. Tax Filling Detail</span>
+<mat-divider></mat-divider>
+
+<div class="container mt">
+  <div class="row">
+    <div class="col-md-12">
+      <span class="sub-topic">Type of filling</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <mat-radio-group
+        [(ngModel)]="selectedValue"
+        (change)="onRadioChange($event)"
+      >
+        <mat-radio-button
+          *ngFor="let filingType of filingTypes"
+          [value]="filingType.value"
+        >
+          {{ filingType.name }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+</div>

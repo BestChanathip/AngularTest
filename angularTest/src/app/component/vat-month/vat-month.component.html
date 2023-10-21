@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="row mb">
+        <div class="col-md-12">
+          <span class="sub-topic">{{
+            selectedValue === "0" ? "VAT Month" : "Tax Month"
+          }}</span>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-md-12">
+          <select matNativeControl required>
+            <option *ngFor="let month of months" [value]="month.value">
+              {{ month.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="row mb">
+        <div class="col-md-12">&nbsp;</div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select matNativeControl required>
+            <option *ngFor="let year of getYears()" [value]="year">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-md-offset-2" *ngIf="selectedValue === '1'">
+      <div class="row mb">
+        <div class="col-md-12">
+          <span class="sub-topic">Type</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <select matNativeControl required>
+            <option>on time</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

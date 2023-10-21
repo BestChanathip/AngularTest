@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+body {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #ebebeb;
+}
+
+.card {
+  width: 70%;
+  max-width: 800px;
+  margin: 50px auto;
+  position: absolute;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.topic{
+  font-size: 18px;
+  font-weight: bold;
+  color: #575757;
+}
+
+.sub-topic{
+  font-size: 15px;
+  font-weight: bold;
+  color: #808080;
+}
+
+mat-card-content{
+  padding: 20px !important;
+}
+
+.mt{
+  margin-top: 10px;
+}
+
+mat-grid-list select{
+  margin-right: 20px;
+}
+
+.mb{
+  margin-bottom: 10px;
+}
+
+.primary-button{
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+.primary-button:hover{
+  font-weight: bold;
+  background-color: #f86395;
+}
+
+.mr-10{
+  margin-right: 10px;
+}
+
+.default-button{
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: white;
+  color: #ff4081;
+  border: 1px solid #ff4081;
+  border-radius: 20px;
+}
+
+.default-button:hover{
+  color: #f86395;
+  border: 1px solid #f86395;
+  font-weight: bold;
+}
