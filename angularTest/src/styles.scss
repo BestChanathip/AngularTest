@@ -94,7 +94,11 @@ mat-grid-list select {
 }
 
 .input-disable {
-  cursor: not-allowed;
+  cursor: not-allowed !important;
   color: #a8a8a8 !important;
-  font-weight: 600;
+  font-weight: 400 !important;
+}
+
+[name=inputSaleAmount],[name=inputTaxAmount]{
+  background-color: rgb(255, 255, 255) !important;
 }

@@ -22,6 +22,7 @@ export class DataService {
 
   calSurcharge(value: number) {
     let surcharge = parseFloat((value * 0.1).toFixed(2));
+    this.inputValueSurcharge.next(surcharge)
   }
 
   onSelectResetVale() {
