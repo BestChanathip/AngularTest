@@ -24,35 +24,35 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.topic{
+.topic {
   font-size: 18px;
   font-weight: bold;
   color: #575757;
 }
 
-.sub-topic{
+.sub-topic {
   font-size: 15px;
   font-weight: bold;
   color: #808080;
 }
 
-mat-card-content{
+mat-card-content {
   padding: 20px !important;
 }
 
-.mt{
+.mt {
   margin-top: 10px;
 }
 
-mat-grid-list select{
+mat-grid-list select {
   margin-right: 20px;
 }
 
-.mb{
+.mb {
   margin-bottom: 10px;
 }
 
-.primary-button{
+.primary-button {
   width: 100px;
   height: 30px;
   font-size: 16px;
@@ -63,16 +63,16 @@ mat-grid-list select{
   border-radius: 20px;
 }
 
-.primary-button:hover{
+.primary-button:hover {
   font-weight: bold;
   background-color: #f86395;
 }
 
-.mr-10{
+.mr-10 {
   margin-right: 10px;
 }
 
-.default-button{
+.default-button {
   width: 100px;
   height: 30px;
   font-size: 16px;
@@ -83,8 +83,18 @@ mat-grid-list select{
   border-radius: 20px;
 }
 
-.default-button:hover{
+.default-button:hover {
   color: #f86395;
   border: 1px solid #f86395;
   font-weight: bold;
+}
+
+.input-txt-right {
+  text-align: right;
+}
+
+.input-disable {
+  cursor: not-allowed;
+  color: #a8a8a8 !important;
+  font-weight: 600;
 }

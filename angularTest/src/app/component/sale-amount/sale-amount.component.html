@@ -1,0 +1,16 @@
+<form>
+  <mat-form-field>
+    <mat-label>THB</mat-label>
+    <input
+      matInput
+      type="number"
+      step="0.01"
+      appNumericInput
+      name="inputSaleAmount"
+      [(ngModel)]="inputSaleAmount"
+      (blur)="onBlur()"
+      [min]="0"
+      class="input-txt-right"
+    />
+  </mat-form-field>
+</form>

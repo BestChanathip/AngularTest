@@ -1,0 +1,15 @@
+<form>
+  <mat-form-field>
+    <mat-label>THB</mat-label>
+    <input
+      matInput
+      type="number"
+      step="0.01"
+      [(ngModel)]="calculatedVat"
+      appNumericInput
+      name="inputTaxAmount"
+      [min]="0"
+      class="input-txt-right"
+    />
+  </mat-form-field>
+</form>
