@@ -58,10 +58,11 @@ export class ConfirmTaxComponent {
     this.openDialog()
   }
 
-  openDialog(): void {
+  openDialog(){
+    let message =  JSON.stringify(this.taxData);
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
-        customText:'dfssssssssss',
+        message: message,
       },
     });
   }
