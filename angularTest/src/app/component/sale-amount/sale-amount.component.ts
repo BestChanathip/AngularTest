@@ -44,7 +44,7 @@ export class SaleAmountComponent {
 
   onBlur() {
     this.dataService.calTax(parseFloat(this.inputSaleAmount));
-    this.summaryService.calculateAll(parseFloat(this.inputSaleAmount));
+    this.summaryService.calculateAll(parseFloat(this.inputSaleAmount),false,0);
     const number = parseFloat(this.inputSaleAmount.replace(/,/g, ''));
     this.inputSaleAmount = number.toLocaleString('en-US', {
       minimumFractionDigits: 2,

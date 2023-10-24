@@ -38,7 +38,6 @@ export class CreateTaxComponent {
 
   initSummary() {
     this.summaryService.objTaxData$.subscribe((value: TaxData) => {
-      console.log('value :>> ', value);
 
       const emptyOrZeroProperties = Object.keys(value).filter((key) => {
         return (value as any)[key] === '' || (value as any)[key] === 0;

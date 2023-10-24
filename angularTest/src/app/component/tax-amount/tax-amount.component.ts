@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/shared/data.service';
+import { SummaryService } from 'src/app/shared/summary.service';
 
 @Component({
   selector: 'app-tax-amount',
@@ -11,7 +12,7 @@ export class TaxAmountComponent {
   calculatedVat: string = '0';
   previousVal: number = 0;
   newVal: number = 0;
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private summaryService: SummaryService) {}
 
   ngOnInit() {
     this.calVat();
@@ -68,6 +69,7 @@ export class TaxAmountComponent {
       });
       this.dataService.calSurcharge(parseFloat(this.calculatedVat));
       this.dataService.calTotalAmount(parseFloat(this.calculatedVat), true);
+      this.summaryService.calculateAll(0, true, parseFloat(this.calculatedVat));
     } else {
       this.calculatedVat = this.previousVal.toLocaleString('en-US', {
         minimumFractionDigits: 2,

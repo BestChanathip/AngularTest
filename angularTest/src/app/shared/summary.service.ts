@@ -42,13 +42,11 @@ export class SummaryService {
   }
 
   setMonth(month: string) {
-    console.log('month :>> ', month);
     const foundMonth = MONTHS.find((e) => e.value === month);
     if (month === '') {
       this.taxData.month = '';
     }
     if (foundMonth) {
-      console.log('foundMonth :>> ', foundMonth);
       this.taxData.month = foundMonth.name;
       // this.inputMonth = foundMonth.name;
     }
@@ -59,19 +57,29 @@ export class SummaryService {
     this.taxData.year = year;
   }
 
-  calculateAll(saleAmount: number) {
+  calculateAll(saleAmount: number, isEditVat: boolean, editedTax:number) {
     // this.inputSaleAmount = saleAmount;
     // this.inputTaxAmount = saleAmount * 0.07;
     // this.inputSurcharge = this.inputTaxAmount * 0.1;
     // this.inputTotalAmount =
     //   this.inputTaxAmount + this.inputSurcharge + this.inputPenalty;
-    let taxVal = parseFloat((saleAmount * 0.07).toFixed(2));
-    let surchargeVal = parseFloat((taxVal * 0.1).toFixed(2));
-    let totalVal = taxVal + surchargeVal + 200;
-    this.taxData.saleAmount = parseFloat(saleAmount.toFixed(2));
-    this.taxData.taxAmount = taxVal;
-    this.taxData.surcharge = surchargeVal;
-    this.taxData.totalAmount = parseFloat(totalVal.toFixed(2));
+
+    if (!isEditVat) {
+      let taxVal = parseFloat((saleAmount * 0.07).toFixed(2));
+      let surchargeVal = parseFloat((taxVal * 0.1).toFixed(2));
+      let totalVal = taxVal + surchargeVal + 200;
+      this.taxData.saleAmount = parseFloat(saleAmount.toFixed(2));
+      this.taxData.taxAmount = taxVal;
+      this.taxData.surcharge = surchargeVal;
+      this.taxData.totalAmount = parseFloat(totalVal.toFixed(2));
+    }
+    else{
+      let surchargeVal = parseFloat((editedTax * 0.1).toFixed(2));
+      let totalVal = editedTax + surchargeVal + 200;
+      this.taxData.taxAmount = parseFloat((editedTax).toFixed(2));
+      this.taxData.surcharge = surchargeVal
+      this.taxData.totalAmount = parseFloat(totalVal.toFixed(2));
+    }
   }
 
   summary() {
