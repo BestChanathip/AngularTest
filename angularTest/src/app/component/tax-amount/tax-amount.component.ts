@@ -39,7 +39,7 @@ export class TaxAmountComponent {
   initResetValue() {
     this.dataService.eventResetValue$.subscribe((value) => {
       if (value) {
-        this.calculatedVat = '0';
+        this.calculatedVat = '0.00';
       }
     });
   }

@@ -25,7 +25,7 @@ export class SurchargeComponent {
   initResetValue() {
     this.dataService.eventResetValue$.subscribe((value) => {
       if (value) {
-        this.calculatedSurcharge = '0';
+        this.calculatedSurcharge = '0.00';
       }
     });
   }

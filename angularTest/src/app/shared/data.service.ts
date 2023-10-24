@@ -42,4 +42,8 @@ export class DataService {
       this.totalAmount.next(total);
     }
   }
+
+  resetTotalAmount(){
+    this.totalAmount.next(0.00);
+  }
 }

@@ -26,7 +26,7 @@ export class TotalAmountComponent {
   initResetValue() {
     this.dataService.eventResetValue$.subscribe((value) => {
       if (value) {
-        this.calculatedTotalAmount = '0';
+        this.calculatedTotalAmount = '0.00';
       }
     });
   }

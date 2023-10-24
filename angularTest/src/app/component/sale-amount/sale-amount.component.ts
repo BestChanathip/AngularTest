@@ -15,7 +15,7 @@ export class SaleAmountComponent {
   ) {}
 
   // inputSaleAmount: number = 0;
-  inputSaleAmount: string = '';
+  inputSaleAmount: string = '0.00';
   ngOnInit() {
     this.reset();
   }
@@ -23,7 +23,7 @@ export class SaleAmountComponent {
   reset() {
     this.dataService.eventResetValue$.subscribe((value) => {
       if (value) {
-        this.inputSaleAmount = '0';
+        this.inputSaleAmount = '0.00';
       }
     });
   }
@@ -43,8 +43,18 @@ export class SaleAmountComponent {
   }
 
   onBlur() {
-    this.dataService.calTax(parseFloat(this.inputSaleAmount));
-    this.summaryService.calculateAll(parseFloat(this.inputSaleAmount),false,0);
+    if (this.inputSaleAmount === '') {
+      this.reset();
+      this.dataService.calTax(0);
+      this.dataService.resetTotalAmount();
+    } else {
+      this.dataService.calTax(parseFloat(this.inputSaleAmount));
+    }
+    this.summaryService.calculateAll(
+      parseFloat(this.inputSaleAmount),
+      false,
+      0
+    );
     const number = parseFloat(this.inputSaleAmount.replace(/,/g, ''));
     this.inputSaleAmount = number.toLocaleString('en-US', {
       minimumFractionDigits: 2,
