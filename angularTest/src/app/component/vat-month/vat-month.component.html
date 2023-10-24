@@ -5,14 +5,20 @@
         <div class="col-md-12">
           <span class="sub-topic">{{
             selectedValue === "0" ? "VAT Month" : "Tax Month"
-          }}</span><span class="validate"> *</span>
+          }}</span
+          ><span class="validate"> *</span>
         </div>
       </div>
-      <div class="row ">
+      <div class="row">
         <div class="col-md-12">
-          <select matNativeControl required  [(ngModel)]="selectedMonth" (change)="onSelectMonth()"> 
-            <option *ngFor="let month of months" [value]="month.value">
-              {{ month.name }}
+          <select
+            matNativeControl
+            required
+            [(ngModel)]="selectedYear"
+            (change)="onSelectYear()"
+          >
+            <option *ngFor="let year of getYears()" [value]="year">
+              {{ year }}
             </option>
           </select>
         </div>
@@ -24,9 +30,18 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <select matNativeControl required  [(ngModel)]="selectedYear" (change)="onSelectYear()">
-            <option *ngFor="let year of getYears()" [value]="year">
-              {{ year }}
+          <select
+            matNativeControl
+            required
+            [(ngModel)]="selectedMonth"
+            (change)="onSelectMonth()"
+          >
+            <option
+              *ngFor="let month of months"
+              [value]="month.value"
+              [disabled]="isMonthDisabled(selectedYear, month)"
+            >
+              {{ month.name }}
             </option>
           </select>
         </div>

@@ -29,11 +29,22 @@ export class VatMonthComponent {
     return years;
   }
 
-  onSelectMonth(){
-    this.summaryService.setMonth(this.selectedMonth)
+  onSelectYear() {
+    this.selectedMonth = '';
+    this.summaryService.setMonth(this.selectedMonth);
+    this.summaryService.setYear(this.selectedYear);
+  }
+  
+  onSelectMonth() {
+    this.summaryService.setMonth(this.selectedMonth);
   }
 
-  onSelectYear(){
-    this.summaryService.setYear(this.selectedYear)
+  isMonthDisabled(selectedYear: string, month: { name: string, value: string }): boolean {
+    const today = new Date();
+    const selectedDate = new Date(parseInt(selectedYear), MONTHS.findIndex(m => m.value === month.value));
+  
+    return selectedDate > today;
   }
+  
+  
 }

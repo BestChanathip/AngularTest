@@ -33,7 +33,6 @@ export class SummaryService {
   private objTaxData = new BehaviorSubject<TaxData>(this.taxData);
   objTaxData$ = this.objTaxData.asObservable();
 
- 
   setFilingType(type: string) {
     const foundType = FILING_TYPES.find((e) => e.value === type);
     if (foundType) {
@@ -43,8 +42,13 @@ export class SummaryService {
   }
 
   setMonth(month: string) {
+    console.log('month :>> ', month);
     const foundMonth = MONTHS.find((e) => e.value === month);
+    if (month === '') {
+      this.taxData.month = '';
+    }
     if (foundMonth) {
+      console.log('foundMonth :>> ', foundMonth);
       this.taxData.month = foundMonth.name;
       // this.inputMonth = foundMonth.name;
     }
@@ -64,14 +68,13 @@ export class SummaryService {
     let taxVal = parseFloat((saleAmount * 0.07).toFixed(2));
     let surchargeVal = parseFloat((taxVal * 0.1).toFixed(2));
     let totalVal = taxVal + surchargeVal + 200;
-    this.taxData.saleAmount = parseFloat((saleAmount).toFixed(2));
+    this.taxData.saleAmount = parseFloat(saleAmount.toFixed(2));
     this.taxData.taxAmount = taxVal;
     this.taxData.surcharge = surchargeVal;
-    this.taxData.totalAmount = parseFloat((totalVal).toFixed(2));
+    this.taxData.totalAmount = parseFloat(totalVal.toFixed(2));
   }
 
-  summary(){
-    this.objTaxData.next(this.taxData)
+  summary() {
+    this.objTaxData.next(this.taxData);
   }
 }
-

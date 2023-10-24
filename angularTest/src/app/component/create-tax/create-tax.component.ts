@@ -56,7 +56,7 @@ export class CreateTaxComponent {
   }
 
   openSnackBar(message: string) {
-    this.snackBar.open(message, 'Dismiss', {
+    this.snackBar.open(message, 'Close', {
       duration: 8000,
       verticalPosition: 'bottom', 
     horizontalPosition: 'center', 
