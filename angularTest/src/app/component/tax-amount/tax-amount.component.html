@@ -1,4 +1,4 @@
-<form>
+<!-- <form>
   <mat-form-field>
     <mat-label>THB</mat-label>
     <input
@@ -12,4 +12,16 @@
       class="input-txt-right"
     />
   </mat-form-field>
-</form>
+</form> -->
+
+<div class="custom-input-group">
+  <span>THB</span>
+  <input
+    type="text"
+    [(ngModel)]="calculatedVat"
+    (input)="onInput($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    class="input-txt-right"
+  />
+</div>

@@ -31,7 +31,6 @@ export class SaleAmountComponent {
   onInput(event: any) {
     const input = event.target.value;
     const numericInput = input.replace(/[^0-9.]/g, '');
-
     if (numericInput !== input) {
       event.target.value = numericInput;
     }
