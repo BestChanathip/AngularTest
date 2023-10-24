@@ -26,6 +26,13 @@ export class ConfirmTaxComponent {
 
   initSummary() {
     this.summaryService.objTaxData$.subscribe((value: TaxData) => {
+      // const emptyOrZeroProperties = Object.keys(value).filter((key) => {
+      //   return (value as any)[key] === '' || (value as any)[key] === 0;
+      // });
+      // if (emptyOrZeroProperties.length > 0) {
+      //   this.router.navigate(['']);
+      // }
+
       this.taxData = value;
       this.taxData.penaltyCurrency =
         this.taxData.penalty !== undefined
@@ -51,15 +58,15 @@ export class ConfirmTaxComponent {
   }
 
   onClickBack() {
-    this.router.navigate(['']);
+    window.location.href = '/';
   }
 
   onClickConfirm() {
-    this.openDialog()
+    this.openDialog();
   }
 
-  openDialog(){
-    let message =  JSON.stringify(this.taxData);
+  openDialog() {
+    let message = JSON.stringify(this.taxData);
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
         message: message,
