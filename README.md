@@ -6,4 +6,4 @@ how to run test
 4. run http://localhost:4200/
 
 lib : https://material.angular.io/
-preview : https://65347a331f6f37614a07908f--starlit-entremet-e74ce8.netlify.app/
+preview : https://majestic-flan-d7fb6a.netlify.app/
